@@ -1,441 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whimsy-Wrap</title>
-    <link rel="favicon.ico" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #FF69B4;
-            --secondary-color: #FFB6C1;
-            --background-color: #FFF0F5;
-            --text-color: #4A0E1C;
-            --light-text-color: #fff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--light-text-color);
-            text-decoration: none;
-            font-weight: 300;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .hero {
-            background-image: url('https://images.unsplash.com/photo-1619119069152-a2b331eb392a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--light-text-color);
-            margin-top: 60px;
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #FF1493;
-        }
-
-        main {
-            padding: 4rem 0;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-price {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-
-        .product-description {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .social-links {
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: var(--light-text-color);
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
-            text-decoration: none;
-        }
-
-        .about-content, .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .contact-form button {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            border: none;
-            padding: 0.8rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #FF1493;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-body input,
-        .modal-body textarea {
-            width: calc(100% - 20px);
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .modal-footer button {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .modal-footer button:hover {
-            background-color: #FF1493;
-        }
-
-        .close-btn {
-            background-color: transparent;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-    </style>
+    <title>Whispy-Wrap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
     <header>
-        <nav class="container">
-            <div class="logo">
-                <img src="image1.png" alt="" style="height: 40px; vertical-align: middle;">
-            Whimsy-Wrap
-                </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+        <div class="brand">
+            <h1>Whispy-Wrap</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" class="search-icon" id="search-icon"><i class="fas fa-search"></i></a></li>
+                <li><a href="#" class="cart-icon" id="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Elegance on Your Wrist</h1>
-            <p>Discover our exquisite collection of handcrafted bracelets</p>
-            <a href="#products" class="btn">Shop Now</a>
+    <div id="search-overlay" class="overlay">
+        <div class="overlay-content">
+            <form>
+                <input type="text" placeholder="Search..." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
-    </section>
+    </div>
 
-    <main class="container">
-        <section id="products">
-            <h2>Our Collection</h2>
-            <div class="product-grid" id="product-grid">
-                <!-- Product cards will be dynamically added here -->
+    <div id="cart-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Your Cart</h2>
+            <p>Your cart is empty.</p>
+        </div>
+    </div>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Discover Elegance</h2>
+                <p>Explore our exquisite collection of handcrafted bracelets.</p>
+                <a href="products.html" class="cta-button">Shop Now</a>
             </div>
-        </section><br><br><br><br><br>
+        </section>
 
-        <section id="about">
-            <h2>About Us</h2>
-            <div class="about-content">
-                <h2>Welcome to Whimsy-Wrap</h2>
-                <p>In the world of fast fashion, we're a breath of fresh air. At Whimsy-Wrap ,we believe that jewelry should be more than just a accessory - it should be a work of art that tells a story.</p>
-                <h2>Our Story</h2>
-                <p>Our journey began with a passion for creating unique, handmade pieces that capture the beauty of individuality. We're a team of skilled artisans dedicated to crafting jewelry that's not only stunning but also meaningful. </p>
-                <h2>Our Mission</h2>
-                <p>We're on a mission to empower women and support local communities through our sustainable practices. We believe in the power of handmade craftsmanship and the importance of preserving traditional techniques.</p>
-                <h2>What Sets Us Apart ?</h2>
-                <p><h3>- Handmade with Love:</h4> Each piece is carefully crafted with attention to detail and a dash of love.</p>
-                <p><h3>- Unique Designs:</h3>  Our jewelry is inspired by nature, art, and the world around us. </p>
-                <p><h3>- High-Quality Materials:</h3> We only use the finest materials, sourced responsibly whenever possible. </p>
-                <h2>Meet the Team </h2>
-                <p>Our team is comprised of skilled artisans with a passion for jewelry-making. With years of experience and a keen eye for detail, we're dedicated to bringing you the best.</p>
-                <h2>Join Our Journey</h2>
-                <p>Explore our collection, learn about our process, and discover the story behind each piece. Thank you for joining us on this journey!</p>
-            </div>
-        </section><br><br><br><br><br>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <div class="contact-content">
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
+        <section id="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="bracelet1.jpg" alt="Rose Gold Charm">
+                    <h3>Rose Gold Charm</h3>
+                    <p>$49.99</p>
+                    <a href="#" class="button">Add to Cart</a>
+                </div>
+                <div class="product-card">
+                    <img src="bracelet2.jpg" alt="Pearl Delight">
+                    <h3>Pearl Delight</h3>
+                    <p>$59.99</p>
+                    <a href="#" class="button">Add to Cart</a>
+                </div>
+                <div class="product-card">
+                    <img src="bracelet3.jpg" alt="Pink Sapphire">
+                    <h3>Pink Sapphire</h3>
+                    <p>$79.99</p>
+                    <a href="#" class="button">Add to Cart</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Whimsy-Wrap. All rights reserved.</p>
-            <div class="social-links">
-            <footer>
-        <div class="footer-icons">
-            <a href="https://www.instagram.com/whimsy.wrap?igsh=OGhzOHJ4YjJuamU2" target="_blank" class="icon instagram">
-                <img src="instagram-icon.png" alt="Instagram">
-            </a>
-            <a href="alishazehra312@gmail.com" class="icon gmail">
-                <img src="gmail-icon.png" alt="Gmail">
-            </a>
-        </div>
-    </footer>    
-
-    <div id="purchaseModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Purchase</h2>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
-            <div class="modal-body">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <input type="text" id="phone" placeholder="Your Phone" required>
-                <input type="text" id="address" placeholder="Your Address" required>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                </ul>
             </div>
-            <div class="modal-footer">
-                <button onclick="submitPurchase()">Confirm Purchase</button>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Whispy-Wrap. All rights reserved.</p>
+            <div class="contact-icons">
+                <a href="mailto:info@whispywrap.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+15551234567"><i class="fas fa-phone"></i></a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </div>
+    </footer>
 
-    <script>
-        const products = [
-            { name: "Golden Charm", price: 49.99, image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", description: "Elegant golden charm bracelet with intricate designs." },
-            { name: "Silver Link", price: 39.99, image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", description: "Sleek silver link bracelet for a modern look." },
-            { name: "Rose Gold Bangle", price: 59.99, image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", description: "Stunning rose gold bangle with minimalist design." },
-            { name: "Pearl Elegance", price: 69.99, image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", description: "Classic pearl bracelet for timeless beauty." },
-            { name: "Leather Wrap", price: 29.99, image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", description: "Stylish leather wrap bracelet for a casual chic look." },
-            { name: "Gemstone Delight", price: 79.99, image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", description: "Colorful gemstone bracelet to brighten your day." },
-        ];
-
-        const productGrid = document.getElementById('product-grid');
-        const purchaseModal = document.getElementById('purchaseModal');
-        let selectedProduct = null;
-
-        products.forEach(product => {
-            const productCard = document.createElement('div');
-            productCard.className = 'product-card';
-            productCard.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <div class="product-info">
-                    <h3 class="product-title">${product.name}</h3>
-                    <p class="product-price">$${product.price.toFixed(2)}</p>
-                    <p class="product-description">${product.description}</p>
-                    <button class="btn" onclick="openModal('${product.name}', ${product.price})">Purchase</button>
-                </div>
-            `;
-            productGrid.appendChild(productCard);
-        });
-
-        function openModal(name, price) {
-            selectedProduct = { name, price };
-            purchaseModal.style.display = 'block';
-        }
-
-        function closeModal() {
-            purchaseModal.style.display = 'none';
-            selectedProduct = null;
-        }
-
-        function submitPurchase() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-
-            if (name && email && phone && address) {
-                console.log('Purchase Details:', {
-                    product: selectedProduct,
-                    customer: { name, email, phone, address }
-                });
-                alert(`Thank you for purchasing ${selectedProduct.name}!`);
-                closeModal();
-            } else {
-                alert('Please fill in all fields.');
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>

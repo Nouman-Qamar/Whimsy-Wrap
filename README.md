@@ -1,8 +1,8 @@
-# Whimsy-Wrap — Bracelet Store Website
+# Whimsy-Wrap  Bracelet Store Website
 
-A 4-page e-commerce front-end for a bracelet/jewelry boutique — home, products, about, and contact — built with vanilla HTML and CSS.
+A 4-page e-commerce front-end for a bracelet/jewelry boutique  home, products, about, and contact  built with vanilla HTML and CSS.
 
-🔗 **Live Demo:** https://nouman-qamar.github.io/Whimsy-Wrap/
+🔗 **Live Demo:** https://nouman-qamar.github.io/Whimsy-Wrap/index.html
 
 ## Pages
 - **Home** (`index.html`) — hero, featured bracelets
